@@ -1,2 +1,2 @@
 # SortingAlgorithms
-Algorithms implement by myself.
+Algorithms implemented by myself.
