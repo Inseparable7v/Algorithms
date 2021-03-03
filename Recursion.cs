@@ -33,7 +33,36 @@ namespace SortingAlgorithms
                 vector[index] = i;
                 Gen01(vector, index + 1);
             }
+        }
 
+        public void NestedLoopsWithRecursion(int[] arr, int index, int start)
+        {
+            if (start == arr.Length)
+            {
+                Console.WriteLine(string.Join("", arr));
+                return;
+            }
+
+            for (int i = 1; i <= index; i++)
+            {
+                arr[start] = i;
+                NestedLoopsWithRecursion(arr, index, start + 1);
+            }
+        }
+
+        private static void CombinationsWithoutRep(int[] slots, int[] array, int index, int start)
+        {
+            if (index >= slots.Length)
+            {
+                Console.WriteLine(string.Join(" ", slots));
+                return;
+            }
+
+            for (int i = start; i < array.Length; i++)
+            {
+                slots[index] = array[i];
+                CombinationsWithoutRep(slots, array, index + 1, i + 1);
+            }
         }
 
         public void CharPyramid(int n)
@@ -58,7 +87,18 @@ namespace SortingAlgorithms
 
             return n * Factorial(n - 1);
         }
+        private static void ReverseArray(int[] array, int start, int end)
+        {
+            if (start >= end)
+            {
+                Console.WriteLine(string.Join(" ", array));
+                return;
+            }
 
+            var temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+            ReverseArray(array, start + 1, end - 1);
+        }
     }
-
 }

@@ -6,12 +6,15 @@ namespace SortingAlgorithms
 {
     public class SelectionSort
     {
-        public Array Sort(int[] array)
+        /// <summary>
+        /// Memory: 1
+        /// Complexity: O(n2)
+        /// Stable: No
+        /// </summary>
+        private int temp, smallest;
+        public int[] Sort(int[] array)
         {
             var count = array.Length - 1;
-
-            int temp, smallest;
-
             //The algorithm builds the sorted list from the left.
             //1. For each item in the array...
             for (int i = 0; i < count - 1; i++)
@@ -28,13 +31,18 @@ namespace SortingAlgorithms
                         smallest = j;
                     }
                 }
-                //5. Swap the found-smallest value with the current value
-                temp = array[smallest];
-                array[smallest] = array[i];
-                array[i] = temp;
+                Swap(array, i);
             }
 
             return array;
+        }
+
+        //5. Swap the found-smallest value with the current value
+        public void Swap(int[] array,int index)
+        {
+            temp = array[smallest];
+            array[smallest] = array[index];
+            array[index] = temp;
         }
     }
 }

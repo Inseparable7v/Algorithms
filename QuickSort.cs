@@ -7,13 +7,13 @@ namespace ConsoleApp4
     public class QuickSort
     {
         //O(nlogn) 
-        public Array QuickSortAlgorithm(int[] array, int init, int end)
+        public int[] Sort(int[] array, int start, int end)
         {
-            if (init < end)
+            if (start < end)
             {
-                int pivot = Partition(array, init, end);
-                QuickSortAlgorithm(array, init, pivot - 1);
-                QuickSortAlgorithm(array, pivot + 1, end);
+                int pivot = Partition(array, start, end);
+                Sort(array, start, pivot - 1);
+                Sort(array, pivot + 1, end);
             }
             return array;
         }
@@ -28,14 +28,14 @@ namespace ConsoleApp4
                 if (array[j] <= last)
                 {
                     i++;
-                    Exchange(array, i, j);
+                    Swap(array, i, j);
                 }
             }
-            Exchange(array, i + 1, end);
+            Swap(array, i + 1, end);
             return i + 1;
         }
 
-        private void Exchange(int[] array, int i, int j)
+        private void Swap(int[] array, int i, int j)
         {
             int temp = array[i];
             array[i] = array[j];

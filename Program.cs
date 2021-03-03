@@ -8,30 +8,28 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
+            var array = new int[] { 1, 232, 3, 564, 5, 64, 11002 };
 
-            var array = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            var n = int.Parse(Console.ReadLine());
-            var recursion = new Recursion();
-
-            recursion.Gen01(array, 0);
-            QuickSortDemo();
-
-        }
-
-        public static void QuickSortDemo()
-        {
-            var array = new int[6] { 6, 11, 2, 3, 7, 10 };
-
-            var arrayLength = array.Length - 1;
-
+            var bubbleSort = new BubbleSort();
+            var insertionSort = new InsertionSort();
             var quickSort = new QuickSort();
+            var mergeSort = new MergeSort();
+            var selectionSort = new SelectionSort();
 
-            var sortedArray = quickSort.QuickSortAlgorithm(array, 0, arrayLength);
-
-            foreach (var num in sortedArray)
-            {
-                Console.Write(num + ", ");
-            }
+            Console.Write("InsertionSort: ");
+            Console.WriteLine(string.Join(", ", insertionSort.Sort(array)));
+            Console.WriteLine();
+            Console.Write("SelectionSort: ");
+            Console.WriteLine(string.Join(", ", selectionSort.Sort(array)));
+            Console.WriteLine();
+            Console.Write("BubbleSort: ");
+            Console.WriteLine(string.Join(", ", bubbleSort.Sort(array)));
+            Console.WriteLine();
+            Console.Write("QuickSort: ");
+            Console.WriteLine(string.Join(", ", quickSort.Sort(array, 0, array.Length - 1)));
+            Console.WriteLine();
+            Console.Write("MergeSort: ");
+            Console.WriteLine(string.Join(", ", mergeSort.Sort(array.ToList())));
         }
     }
 }
