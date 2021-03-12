@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using SortingAlgorithms;
 
 namespace ConsoleApp4
 {
     public class QuickSort
     {
         //O(nlogn) 
-        public int[] Sort(int[] array, int start, int end)
+        public List<int> Sort(int[] array, int start, int end)
         {
             if (start < end)
             {
@@ -15,7 +17,7 @@ namespace ConsoleApp4
                 Sort(array, start, pivot - 1);
                 Sort(array, pivot + 1, end);
             }
-            return array;
+            return array.ToList();
         }
 
         //O(n)

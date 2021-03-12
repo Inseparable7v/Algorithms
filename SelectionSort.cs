@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SortingAlgorithms
 {
-    public class SelectionSort
+    public class SelectionSort : ISortable
     {
         /// <summary>
         /// Memory: 1
@@ -12,7 +13,7 @@ namespace SortingAlgorithms
         /// Stable: No
         /// </summary>
         private int temp, smallest;
-        public int[] Sort(int[] array)
+        public List<int> Sort(int[] array)
         {
             var count = array.Length - 1;
             //The algorithm builds the sorted list from the left.
@@ -34,7 +35,7 @@ namespace SortingAlgorithms
                 Swap(array, i);
             }
 
-            return array;
+            return array.ToList();
         }
 
         //5. Swap the found-smallest value with the current value

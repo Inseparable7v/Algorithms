@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SortingAlgorithms
 {
-    public class InsertionSort
+    public class InsertionSort : ISortable
     {
         public InsertionSort()
         {
 
         }
 
-        public int[] Sort(int[] array)
+        public List<int> Sort(int[] array)
         {
             for (int i = 1; i < array.Length; i++)
             {
@@ -23,7 +24,7 @@ namespace SortingAlgorithms
                 }
             }
 
-            return array;
+            return array.ToList();
         }
 
         private void Swap(int[] array, in int first, int second)

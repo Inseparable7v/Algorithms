@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SortingAlgorithms
 {
-    public class BubbleSort
+    public class BubbleSort : ISortable
     {
         public BubbleSort()
         {
@@ -17,7 +18,7 @@ namespace SortingAlgorithms
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        public int[] Sort(int[] array)
+        public List<int> Sort(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -32,7 +33,7 @@ namespace SortingAlgorithms
                 }
             }
 
-            return array;
+            return array.ToList();
         }
 
         private void Swap(int[] array, int first, int second)
